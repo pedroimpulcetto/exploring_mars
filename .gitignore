@@ -1,3 +1,11 @@
-.vscode
+#python
+python/.vscode
 
-db.sqlite3
+python/db.sqlite3
+
+
+#==================================
+
+#java
+java/Elo7/.metadata
+java/Elo7/bin/
