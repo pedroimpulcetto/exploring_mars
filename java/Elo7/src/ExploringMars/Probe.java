@@ -2,14 +2,14 @@ package ExploringMars;
 
 import java.util.List;
 
-public class Probe extends CartesianPlan {
+public class Probe {
 	public int initX;
 	public int initY;
 	public String direction;
 	
 	
-	public Probe(int axisX, int axisY, int initX, int initY, String direction) {
-		super(axisX, axisY);
+	public Probe(int initX, int initY, String direction) {
+		super();
 		this.setInitX(initX);
 		this.setInitY(initY);
 		this.setDirection(direction);
@@ -17,7 +17,7 @@ public class Probe extends CartesianPlan {
 		System.out.println(this.getInitX() + " " + this.getInitY() + " " + this.getDirection());
 	}
 	
-	public void move(String instruction, List windRose) {
+	public void move(int axisX, int axisY, String instruction, List windRose) {
 		
 		if (instruction == "R") {
 			int indexDirection = windRose.indexOf(direction) + 1;
@@ -34,13 +34,13 @@ public class Probe extends CartesianPlan {
 		}
 		
 		
-		if (this.getInitY() <= this.getAxisY()) {
+		if (this.getInitY() <= axisY) {
             if (instruction == "M" && this.getDirection() == "N") {
                 this.setInitY(this.getInitY()+1);
             }
 		}
 		
-		if (this.getInitX() <= this.getAxisX()) {
+		if (this.getInitX() <= axisX) {
             if (instruction == "M" && this.getDirection() == "E") {
                 this.setInitX(this.getInitX()+1);
             }

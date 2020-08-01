@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class ExploringMars {
 	public static void main(String[] args) {
 		
-		ArrayList<String> windRose = new ArrayList();
+		ArrayList<String> windRose = new ArrayList<String>();
 		windRose.add("N");
 		windRose.add("E");
 		windRose.add("S");
@@ -15,8 +15,8 @@ public class ExploringMars {
 		
 		System.out.println(cp.getAxisX() + " " + cp.getAxisY());
 		
-		Probe p1 = new Probe(cp.getAxisX(), cp.getAxisY(), 1, 2, "N");
-		Probe p2 = new Probe(cp.getAxisX(), cp.getAxisY(), 3, 3, "E");
+		Probe p1 = new Probe(1, 2, "N");
+		Probe p2 = new Probe(3, 3, "E");
 		
 		String[] instructions1 = {"L", "M", "L", "M", "L", "M", "L", "M", "M"};
 		Instruction i1 = new Instruction(instructions1);
@@ -25,11 +25,11 @@ public class ExploringMars {
 
 		
 		for (String inst : i1.getInstruction()) {			
-			p1.move(inst, windRose);
+			p1.move(cp.getAxisX(), cp.getAxisY(), inst, windRose);
 		}
 		
 		for (String inst : i2.getInstruction()) {			
-			p2.move(inst, windRose);
+			p2.move(cp.getAxisX(), cp.getAxisY(), inst, windRose);
 		}
 		
 		System.out.println("=====");
