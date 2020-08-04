@@ -1,26 +1,18 @@
 package br.com.elo7.exploringMars;
 
-import java.util.ArrayList;
+import br.com.elo7.exploringMars.dto.CartesianPlan;
+import br.com.elo7.exploringMars.dto.Instruction;
+import br.com.elo7.exploringMars.probe.Probe;
 
-/**
- * Hello world!
- *
- */
 public class App 
 {
     public static void main( String[] args )
     {
-    	ArrayList<String> windRose = new ArrayList<String>();
-		windRose.add("N");
-		windRose.add("E");
-		windRose.add("S");
-		windRose.add("W");
 		
 		CartesianPlan cp = new CartesianPlan(5, 5);
-		
-		System.out.println(cp.getAxisX() + " " + cp.getAxisY());
-		
+
 		Probe p1 = new Probe(1, 2, "N");
+
 		Probe p2 = new Probe(3, 3, "E");
 		
 		String[] instructions1 = {"L", "M", "L", "M", "L", "M", "L", "M", "M"};
@@ -30,16 +22,20 @@ public class App
 
 		
 		for (String inst : i1.getInstruction()) {			
-			p1.move(cp.getAxisX(), cp.getAxisY(), inst, windRose);
+			p1.move(cp.getAxisX(), cp.getAxisY(), inst);
 		}
 		
 		for (String inst : i2.getInstruction()) {			
-			p2.move(cp.getAxisX(), cp.getAxisY(), inst, windRose);
+			p2.move(cp.getAxisX(), cp.getAxisY(), inst);
 		}
 		
 		System.out.println("=====");
 		
 		System.out.println(p1.getInitX() + " " + p1.getInitY() + " " + p1.getDirection());
 		System.out.println(p2.getInitX() + " " + p2.getInitY() + " " + p2.getDirection());
+		
+
+
+		
     }
 }
