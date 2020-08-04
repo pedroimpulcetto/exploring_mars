@@ -1,11 +1,16 @@
-package ExploringMars;
+package br.com.elo7.exploringMars;
 
 import java.util.ArrayList;
 
-public class ExploringMars {
-	public static void main(String[] args) {
-		
-		ArrayList<String> windRose = new ArrayList<String>();
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	ArrayList<String> windRose = new ArrayList<String>();
 		windRose.add("N");
 		windRose.add("E");
 		windRose.add("S");
@@ -36,5 +41,5 @@ public class ExploringMars {
 		
 		System.out.println(p1.getInitX() + " " + p1.getInitY() + " " + p1.getDirection());
 		System.out.println(p2.getInitX() + " " + p2.getInitY() + " " + p2.getDirection());
-	}
+    }
 }

@@ -1,4 +1,4 @@
-package ExploringMars;
+package br.com.elo7.exploringMars;
 
 import java.util.List;
 
@@ -17,7 +17,7 @@ public class Probe {
 		System.out.println(this.getInitX() + " " + this.getInitY() + " " + this.getDirection());
 	}
 	
-	public void move(int axisX, int axisY, String instruction, List windRose) {
+	public void move(int axisX, int axisY, String instruction, List<String> windRose) {
 		
 		if (instruction == "R") {
 			int indexDirection = windRose.indexOf(direction) + 1;

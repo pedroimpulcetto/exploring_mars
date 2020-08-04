@@ -1,8 +1,15 @@
-package ExploringMars;
+package br.com.elo7.exploringMars;
 
 public class CartesianPlan {
 	public int axisX;
 	public int axisY;
+	
+	
+	public CartesianPlan(int axisX, int axisY) {
+		super();
+		this.setAxisX(axisX);
+		this.setAxisY(axisY);
+	}
 	
 	
 	
@@ -32,12 +39,4 @@ public class CartesianPlan {
 		this.axisY = axisY;
 	}
 
-
-
-
-	public CartesianPlan(int axisX, int axisY) {
-		super();
-		this.setAxisX(axisX);
-		this.setAxisY(axisY);
-	}
 }
