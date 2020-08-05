@@ -39,7 +39,7 @@ Inicie o server
 
 acesse http://127.0.0.1:8000/ e seu projeto deve iniciar com esse cara:
 
-![Django Rest](images/exploringmars.png)
+![Django Rest](https://github.com/pedroimpulcetto/exploring_mars/python/images/exploringmars.png)
 
 ## Features
 
