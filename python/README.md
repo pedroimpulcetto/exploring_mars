@@ -1,53 +1,93 @@
-# Explorgin Mars
+# Exploring Mars
 
-Passo a passo para executar o projeto:
+API Rest feito em Django Rest Framework para controlar e movimentar sondas em um plano cartesiano através de instruções.
 
-1. Crie uma venv
+## Começando
 
-- python3 -m venv venv
+Para execução do projeto será necessário a instalação do [PYTHON](https://www.python.org/)
 
-2. Instale o requirements.txt que encontra-se na raiz do projeto
+## Desenvolvimento
 
-- pip install -r requirements.txt
+Para iniciar o projeto ou o desenvolvimento de melhorias basta clonar o projeto do GitHub num diretório de sua preferência:
 
-  2.1 Crie o banco de dados e as tabelas
+```python
+  cd "diretorio de sua preferencia"
+  git clone https://github.com/pedroimpulcetto/exploring_mars.git
+```
 
-- python manage.py makemigrations
-- python manage.py migrate
+## Inicialização
 
-3. Inicie o server
-   python manage.py runserver
+Após o python instalado e o projeto clonado, será necessário criar uma virtual env(`venv`) para instalar as depedências sem conflito com seu sistema operacional.
 
-4. Acesse http://127.0.0.1:8000/
+- `python3 -m venv venv`
 
-5. Na rota /cartesian_plan/ adicionar o Eixo X e Eixo Y, coordenada do ponto superior-direito da malha do planalto
-6. Na rota /probes/ crie um Sonda Lunar com os atributos:
+Ative sua venv: `source venv/bin/activate`
+
+Agora instalaremos todas as dependências para que nosso projeto consiga rodar.
+Instale o `requirements.txt` que encontra-se na raiz do projeto
+
+- `pip install -r requirements.txt`
+
+Crie o banco de dados e as tabelas:
+
+- `python manage.py makemigrations`
+- `python manage.py migrate`
+
+Inicie o server
+
+- `python manage.py runserver`
+
+acesse http://127.0.0.1:8000/ e seu projeto deve iniciar com esse cara:
+
+![Django Rest](https://github.com/pedroimpulcetto/exploring_mars/python/images/exploringmars.png)
+
+## Features
+
+A principal função desse projeto é a movimentação da sonda no plano cartesiano através de instrução que serão recebidas.
+
+- Para inciar, acesse a rota `/cartesian_plan/` e "crie" um plano cartesiano adicionando o Eixo X e Eixo Y, coordenada do ponto superior-direito do plano cartesiano.
+
+- Na rota `/probes/` criaremos uma Sonda Lunar com os atributos:
 
 - Eixo X inicial
 - Eixo Y inicial
 - Direção inicial
 - Id do plano cartesiado que deseja usar
-  OBS: 'local' é o local fical que a sonda chegará após as instruções que serão passadas
+  OBS: 'local' é o local final que a sonda chegará após as instruções que serão passadas posteriormente
 
-7. Na rota /instructions/ coloque as instruções que queira que sonda siga
+Um plano cartesiano pode ter N sondas, mas uma sonda só pode estar em um plano cartesiano.
 
-cartesian_plan = {
-"id_cartesian_plan": int,
-"axis_x": int,
-"axis_y": int
-}
+- Na rota `/instructions/` coloque a instrução que queira que sonda siga, podendo ser "Move", "Right" ou "Left" e o Id da sonda para qual deve ser essa instrução.
+  Você pode adicionar quantas instruções forem necessárias.
 
-probes = {
-"id_probe": int,
-"init_x": int,
-"init_y": int,
-"direction": str,
-"instructions": list()
-"id_cartesian_plan": int
-}
+```python
+  cartesian_plan = {
+    "id_cartesian_plan": int,
+    "axis_x": int,
+    "axis_y": int
+  }
+```
 
-instructions = {
-"id_instruction": int,
-"instruction": str,
-"id_probe": int
-}
+```python
+  probes = {
+    "id_probe": int,
+    "init_x": int,
+    "init_y": int,
+    "direction": str,
+    "instructions": list()
+    "id_cartesian_plan": int
+  }
+```
+
+```python
+  instructions = {
+    "id_instruction": int,
+    "instruction": str,
+    "id_probe": int
+  }
+```
+
+##### Atenção
+
+Se a sondar encontra-se em uma das extremidades do Eixo X ou Eixo Y e você passar uma instrução de "Move" - significando que ela deve seguir em frente - ela irá ignorar essa instrução pois está no fim do plano cartesiano, não podendo ultrapassar esse ponto.
+Nesse caso, você deverá passar a instrução de "Right" ou "Left" para alterar a direção e depois passar "Move".
