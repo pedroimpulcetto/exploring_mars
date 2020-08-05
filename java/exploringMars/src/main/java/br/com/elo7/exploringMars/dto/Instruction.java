@@ -11,24 +11,24 @@ package br.com.elo7.exploringMars.dto;
 
 
 public class Instruction {
-	private String[] instruction;
+	private String instruction;
 	
 	
 	
-	public Instruction(String[] instruction) {
-		this.setInstruction(instruction);
-		
+	public Instruction(String instructions) {
+		this.setInstruction(instructions);
+
 	}
 	
 	
 
-	public String[] getInstruction() {
+	public String getInstruction() {
 		return instruction;
 	}
 
 
 
-	public void setInstruction(String[] instruction) {
-		this.instruction = instruction;
+	public void setInstruction(String instructions) {
+		this.instruction = instructions;
 	}
 }
