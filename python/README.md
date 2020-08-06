@@ -45,9 +45,9 @@ acesse http://127.0.0.1:8000/ e seu projeto deve iniciar com esse cara:
 
 A principal função desse projeto é a movimentação da sonda no plano cartesiano através de instrução que serão recebidas.
 
-- Para inciar, acesse a rota `/cartesian_plan/` e "crie" um plano cartesiano adicionando o Eixo X e Eixo Y, coordenada do ponto superior-direito do plano cartesiano.
+Para inciar, acesse a rota `/cartesian_plan/` e "crie" um plano cartesiano adicionando o Eixo X e Eixo Y, coordenada do ponto superior-direito do plano cartesiano.
 
-- Na rota `/probes/` criaremos uma Sonda Lunar com os atributos:
+Na rota `/probes/` criaremos uma Sonda Lunar com os atributos:
 
 - Eixo X inicial
 - Eixo Y inicial
@@ -57,8 +57,8 @@ A principal função desse projeto é a movimentação da sonda no plano cartesi
 
 Um plano cartesiano pode ter N sondas, mas uma sonda só pode estar em um plano cartesiano.
 
-- Na rota `/instructions/` coloque a instrução que queira que sonda siga, podendo ser "Move", "Right" ou "Left" e o Id da sonda para qual deve ser essa instrução.
-  Você pode adicionar quantas instruções forem necessárias.
+Na rota `/instructions/` coloque a instrução que queira que sonda siga, podendo ser "Move", "Right" ou "Left" e o Id da sonda para qual deve ser essa instrução.
+Você pode adicionar quantas instruções forem necessárias.
 
 ```python
   cartesian_plan = {
@@ -74,7 +74,7 @@ Um plano cartesiano pode ter N sondas, mas uma sonda só pode estar em um plano 
     "init_x": int,
     "init_y": int,
     "direction": str,
-    "instructions": list()
+    "instructions": list(),
     "id_cartesian_plan": int
   }
 ```
@@ -87,7 +87,7 @@ Um plano cartesiano pode ter N sondas, mas uma sonda só pode estar em um plano 
   }
 ```
 
-##### Atenção
+### Atenção
 
 Se a sondar encontra-se em uma das extremidades do Eixo X ou Eixo Y e você passar uma instrução de "Move" - significando que ela deve seguir em frente - ela irá ignorar essa instrução pois está no fim do plano cartesiano, não podendo ultrapassar esse ponto.
 Nesse caso, você deverá passar a instrução de "Right" ou "Left" para alterar a direção e depois passar "Move".
