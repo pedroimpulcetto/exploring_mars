@@ -17,18 +17,28 @@ public class App
     	int axisY = scan.nextInt();
 		
 		CartesianPlan cp = new CartesianPlan(axisX, axisY);
-
+		
+			
 		int initX01 = scan.nextInt();
-    	int initY01 = scan.nextInt();
-    	String direction01 = scan.next();
-    	Probe p1 = new Probe(initX01, initY01, direction01);
-    	
-    	String instructions01 = scan.next();
-    	Instruction i1 = new Instruction(instructions01);
+		int initY01 = scan.nextInt();
+		String direction01 = scan.next();
+		Probe p1 = new Probe(initX01, initY01, direction01);
+		
+		String instructions01 = scan.next();
+		Instruction i1 = new Instruction(instructions01);
+		
+		for (int j = 0; j < i1.getInstruction().split("").length; j++) {
+			String instruction = i1.getInstruction().split("")[j];
+			
+			if ("R".equals(instruction)) {
+				p1.rightMove();
+			} else if ("L".equals(instruction)) {
+				p1.leftMove();
+			} else if ("M".equals(instruction)) {
+				p1.forward(cp.getAxisX(), cp.getAxisY());
+			}
+		}
 
-    	for (int i = 0; i < i1.getInstruction().split("").length; i++) {
-    		p1.move(cp.getAxisX(), cp.getAxisY(), i1.getInstruction().split("")[i]);
-    	}
     	
     	
     	int initX02 = scan.nextInt();
@@ -41,7 +51,15 @@ public class App
 		
 		
 		for (int i = 0; i < i2.getInstruction().split("").length; i++) {
-			p2.move(cp.getAxisX(), cp.getAxisY(), i2.getInstruction().split("")[i]);
+			String instruction = i2.getInstruction().split("")[i];
+			
+			if ("R".equals(instruction)) {
+				p2.rightMove();
+			} else if ("L".equals(instruction)) {
+				p2.leftMove();
+			} else if ("M".equals(instruction)) {
+				p2.forward(cp.getAxisX(), cp.getAxisY());
+			}
 		}
 		
 		System.out.println("=====");

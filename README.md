@@ -7,6 +7,12 @@ Segue instruções e utilização para cada uma das vertentes do projeto:
 - [PYTHON](https://github.com/pedroimpulcetto/exploring_mars/tree/master/python)
 - [JAVA](https://github.com/pedroimpulcetto/exploring_mars/tree/master/java/exploringMars)
 
+## Contribuições
+
+Meus conhecimentos em Java são limitados por conta de eu nunca ter tido necessidade de utilizá-lo e os conceitos de orientação a objetos podem ser facilmente aprimorados com a utilização da linguaguem de uma forma mais recorrente, porém acredito que essas barreiras eu consigo ultrapassar de forma moderamente rápida.
+
+Sobre os conceitos Rest, acredito que por mais que a solução esteja feita de forma simplista, ela está atendendo ao resultado. Mas sei que posso melhorar e adquirir a experiência desejada com o tempo, ainda mais se eu estiver cercado por pessoas que podem me ajudar a evoluir ainda mais.
+
 ## Autor
 
 - **Pedro Impulcetto**

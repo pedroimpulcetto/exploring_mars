@@ -59,11 +59,22 @@ obrigatóriamente do tipo _String_
 - Direção inicial da sonda
   obrigatóriamente do tipo _String_ sendo "N", "E", "S" ou "W"
 
-Probe também é responsável pelo método **move()**, capaz de movimentar a sonda pelo plano cartesiano. A cada instrução, move() recebe 3 (três) parâmetros:
+Probe também é responsável por 3 (três) métodos:
 
-- Eixo X em que a sonda encontra-se
-- Eixo Y em que a sonda encontra-se
-- Instrução do que fazer
+- forward()
+- moveLeft()
+- moveRight()
+
+**forward** receberá 2 (dois) parêmtros:
+
+- Eixo X que indica o final do plano cartesiano
+- Eixo Y que indica o final do plano cartesiano
+
+e é reponsável por mover a sonda em frente no plano cartesiano. Ele verificará se sonda já se encontra em uma das extremidades do Eixo X ou Eixo Y, se estiver, ele ignorará a intrução.
+
+**moveLeft** é responsável por mudar a direção da sonda para a esquerda
+
+**moveRight** é responsável por mudar a direção da sonda para a direita
 
 ## Execução
 
@@ -86,7 +97,6 @@ Resultado:
 5 1 E
 ```
 
-##### Atenção
-
-Se a sondar encontra-se em uma das extremidades do Eixo X ou Eixo Y do plano cartesiano e você passar uma instrução de "Move" - significando que ela deve seguir em frente - ela irá ignorar essa instrução pois está no fim do plano cartesiano, não podendo ultrapassar esse ponto.
+_Atenção_, se a sondar encontra-se em uma das extremidades do Eixo X ou Eixo Y do plano cartesiano e você passar uma instrução de "Move" - significando que ela deve seguir em frente - ela irá ignorar essa instrução pois está no fim do plano cartesiano, não podendo ultrapassar esse ponto.
 Nesse caso, você deverá passar a instrução de "Right" ou "Left" para alterar a direção e depois passar "Move".
+
